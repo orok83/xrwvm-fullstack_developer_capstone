@@ -9,7 +9,7 @@ from django.contrib.auth import logout
 
 # from django.views.decorators.cache import never_cache
 # from django.utils.decorators import method_decorator
-from .restapis import get_request analyze_review_sentiments #, post_review
+from .restapis import get_request, analyze_review_sentiments # , post_review
 
 from django.http import JsonResponse
 from django.contrib.auth import login, authenticate
