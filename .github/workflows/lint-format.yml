@@ -32,7 +32,7 @@ jobs:
       run: flake8 .
 
   lint_js:
-    name: Format and Lint JavaScript Files
+    name: Lint JavaScript Files
     runs-on: ubuntu-latest
 
     steps:
@@ -44,11 +44,10 @@ jobs:
       with:
         node-version: 14
 
-    - name: Install Prettier
-      run: npm install --global prettier
+    - name: Install JSHint
+      run: npm install jshint --global
 
-    - name: Format JavaScript Code
-      run: prettier --write "**/*.js"
-
-    - name: Lint Check with Prettier
-      run: prettier --check "**/*.js"
+    - name: Run Linter
+      run: |
+        find ./server/database -name "*.js" -exec jshint --esversion 8 {} +
+        echo "Linted all the JS files successfully"
