@@ -48,7 +48,11 @@ jobs:
 
     - name: Create JSHint config for ES8
       working-directory: ./server
-      run: echo '{ "esversion": 8 }' > .jshintrc
+      run: |
+        echo '{
+        "esversion": 8
+        }' > .jshintrc
+
 
     - name: Format JS with Prettier
       working-directory: ./server
