@@ -45,5 +45,13 @@ jobs:
           node-version: 18
 
       - name: Install JS tools
-        run: |
-          npm install --globa
+        working-directory: ./server
+        run: npm install
+
+      - name: Format JavaScript code using Prettier
+        working-directory: ./server
+        run: npx prettier --write "**/*.js"
+
+      - name: Lint JavaScript code using JSHint (ES8)
+        working-directory: ./server
+        run: find . -name "*.js" -exec npx jshint --esversion 8 {} +
